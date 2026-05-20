@@ -1,0 +1,15 @@
+speechrecognition
+wikipedia
+google-generativeai
+requests
+google-api-python-client
+psutil
+pyautogui
+opencv-python
+Pillow
+speedtest-cli
+comtypes
+pycaw
+edge-tts
+pygame
+python-dotenv
