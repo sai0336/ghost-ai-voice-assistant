@@ -10,7 +10,7 @@ Built this to experiment with free AI APIs and see how many useful things a voic
 
 Ghost listens for the wake word "Ghost" using the microphone. Once activated, it records your voice, converts it to text using speech recognition, sends it to an AI provider, and speaks the response back using text-to-speech.
 
-If one AI provider hits its rate limit or fails, Ghost automatically switches to the next one in the chain without any interruption. This means it keeps working even when individual free tier limits run out.
+The code attempts provider/model fallbacks when requests fail or hit limits. Availability depends on current API access, provider quotas, and compatible model IDs.
 
 ---
 
@@ -76,9 +76,13 @@ pip install -r requirements.txt
 
 ### Step 3 — Set up API keys
 
-```
+On Windows Command Prompt:
+
+```bat
 copy .env.example .env
 ```
+
+Use only keys issued to you; never commit `.env`.
 
 Open the `.env` file and fill in your API keys. See the table below for where to get each one.
 
@@ -92,7 +96,7 @@ python ghost.py
 
 ## Getting API keys
 
-All of these are free:
+Check each provider's current pricing and free-tier availability; limits and supported models can change:
 
 | Key | Where to get it |
 |---|---|
@@ -144,7 +148,7 @@ ghost-ai-voice-assistant/
 
 ## Note
 
-Never upload your `.env` file to GitHub. It contains your API keys. The `.gitignore` in this repo already excludes it — just make sure you never remove that entry.
+Never upload your `.env` file to GitHub. It contains your API keys. The `.gitignore` excludes local `.env` files. Do not commit real credentials. If credentials were committed previously, revoke and replace them; adding `.gitignore` does not erase Git history.
 
 ---
 
